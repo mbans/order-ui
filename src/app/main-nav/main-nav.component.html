@@ -1,0 +1,73 @@
+
+<mat-toolbar color="primary" class="mat-elevation-z4 toolbar">
+
+  <button
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="drawer.toggle()">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    
+    <a routerLink="home" class="veto"><span>V.E.T.O</span></a>
+    <span class="spacer"></span>
+  
+    <button mat-icon-button routerLink="settings">
+        <i matTooltip="Settings" class="material-icons md-24 right-links">more_vert</i>
+    </button>
+  
+    <button mat-icon-button routerLink="user">
+        <!-- <i class="far fa-user"></i> -->
+        <i matTooltip="Martin Bans (43923548)" class="material-icons md-36 right-links">account_circle</i>
+    </button>
+</mat-toolbar>
+
+
+<mat-sidenav-container class="sidenav-container" >
+  <mat-sidenav 
+      #drawer 
+      class="sidenav" 
+      fixedInViewport="false"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+
+
+   <mat-list>
+      
+        <button  mat-button routerLink="home">
+          <i class="material-icons md-24 side-links">home</i>Home
+        </button>
+      
+      <button mat-button [matMenuTriggerFor]="queries" routerLink="query">
+        <i class="material-icons md-24 side-links">cloud</i>Cache Query
+      </button>
+      
+      <button mat-button  [matMenuTriggerFor]="reports" routerLink="reporting">
+          <i class="material-icons md-24 side-links">assessment</i>
+          Reporting
+        </button>
+   </mat-list>
+
+
+    <mat-menu #queries="matMenu">
+          <button mat-menu-item routerLink="query">Position</button>
+          <button mat-menu-item routerLink="query">Instrument</button>
+          <button mat-menu-item routerLink="query"> MarketData</button>
+          <button mat-menu-item>Limits</button>
+    </mat-menu>
+
+    <mat-menu #reports="matMenu">
+        <button mat-menu-item routerLink="reporting">Market Data Report</button>
+        <button mat-menu-item routerLink="reporting">Short Sell Report</button>
+        <button mat-menu-item routerLink="reporting">Bad Instrument Static Report</button>
+    </mat-menu>
+
+  </mat-sidenav>
+
+  <ng-content></ng-content>
+
+</mat-sidenav-container>
+
+

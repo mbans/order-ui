@@ -1,11 +1,24 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Query } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ReportingComponent } from './reporting/reporting/reporting.component';
+import { QueryComponent } from './qery/query/query.component';
+import { SettingsComponent } from './settings/settings.component';
+import { UserComponent } from './user/user.component';
 
-
-const routes: Routes = [];
+const appRoutes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'query', component: QueryComponent },
+  { path: 'reporting', component: ReportingComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'user', component: UserComponent }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+
+
+}
