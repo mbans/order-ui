@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-query',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QueryComponent implements OnInit {
 
-  constructor() { }
+  cache: string;
+
+  constructor(private _Activatedroute:ActivatedRoute) { 
+    this._Activatedroute.paramMap.subscribe(params => { 
+      this.cache = params.get('cache'); 
+    });
+  } 
 
   ngOnInit() {
   }

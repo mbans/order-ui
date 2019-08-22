@@ -1,3 +1,40 @@
 .parent {
     margin: 20px 20px;
 }
+
+.toolbar {
+max-height: 50px;
+min-height: 50px;
+}
+  
+  
+  
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+  
+/* This takes up all remaining space inside the flex box container that the toolbar uses */
+.spacer {
+    flex: 1 1 auto;
+}
+  
+.links {
+    margin: 0 5px; /** no margin top and bottom but 10px left and right */
+}
+  
+/* setting size of the material icons */
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+  
+.ord-man {
+    font-size: 15px;
+}
+  
+  
+.veto {
+    color: white;
+    text-decoration: none;
+}
+  
